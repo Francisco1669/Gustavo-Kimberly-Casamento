@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "nome": "Jogo de Toalhas Premium",
+    "valor": 250.00,
+    "comprado": false,
+    "compradoPor": null
+  },
+  {
+    "id": 2,
+    "nome": "Aspirador de Pó Robô",
+    "valor": 1200.00,
+    "comprado": false,
+    "compradoPor": null
+  },
+  {
+    "id": 3,
+    "nome": "Jogo de Panelas Antiaderente",
+    "valor": 450.00,
+    "comprado": false,
+    "compradoPor": null
+  },
+  {
+    "id": 4,
+    "nome": "Kit Banheiro Completo",
+    "valor": 180.00,
+    "comprado": false,
+    "compradoPor": null
+  },
+  {
+    "id": 5,
+    "nome": "Cafeteira Expresso",
+    "valor": 680.00,
+    "comprado": false,
+    "compradoPor": null
+  },
+  {
+    "id": 6,
+    "nome": "Liquidificador Premium",
+    "valor": 320.00,
+    "comprado": false,
+    "compradoPor": null
+  },
+  {
+    "id": 7,
+    "nome": "Jogo de Cama King Size",
+    "valor": 380.00,
+    "comprado": false,
+    "compradoPor": null
+  },
+  {
+    "id": 8,
+    "nome": "Air Fryer 5L",
+    "valor": 550.00,
+    "comprado": false,
+    "compradoPor": null
+  },
+  {
+    "id": 9,
+    "nome": "Ferro de Passar a Vapor",
+    "valor": 220.00,
+    "comprado": false,
+    "compradoPor": null
+  },
+  {
+    "id": 10,
+    "nome": "Micro-ondas 30L",
+    "valor": 580.00,
+    "comprado": false,
+    "compradoPor": null
+  },
+  {
+    "id": 11,
+    "nome": "Mixer Completo",
+    "valor": 280.00,
+    "comprado": false,
+    "compradoPor": null
+  },
+  {
+    "id": 12,
+    "nome": "Conjunto de Taças de Cristal",
+    "valor": 420.00,
+    "comprado": false,
+    "compradoPor": null
+  }
+]
