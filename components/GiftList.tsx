@@ -60,56 +60,92 @@ export default function GiftList() {
   };
 
   return (
-    <div className="h-full overflow-y-auto p-8 lg:p-12">
-      <h2 className="text-4xl lg:text-5xl font-playfair font-bold text-white mb-8 text-center drop-shadow-lg">
-        Lista de Presentes
-      </h2>
-
+    <div className="w-full">
       {mensagem && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0 }}
-          className="bg-white text-gold font-semibold text-center py-3 px-6 rounded-lg mb-6 shadow-lg"
+          className="bg-gradient-to-r from-gold to-darkGold text-white font-semibold text-center py-3 px-6 rounded-lg mb-6 shadow-lg"
         >
           {mensagem}
         </motion.div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {presentes.map((presente, index) => (
           <motion.div
             key={presente.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className={`bg-white/95 backdrop-blur rounded-xl p-6 shadow-lg ${
-              presente.comprado ? 'opacity-60' : 'hover:shadow-2xl'
+            transition={{ delay: index * 0.05 }}
+            className={`bg-gradient-to-br from-white to-cream rounded-xl p-6 shadow-lg border border-gold/10 ${
+              presente.comprado ? 'opacity-60' : 'hover:shadow-2xl hover:scale-105'
             } transition-all`}
           >
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+            <div className="flex items-start justify-between mb-3">
+              <div className="bg-gold/10 p-2 rounded-lg">
+                <svg
+                  className="w-6 h-6 text-gold"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                </svg>
+              </div>
+              {presente.comprado && (
+                <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-semibold">
+                  Presenteado
+                </span>
+              )}
+            </div>
+
+            <h3 className="text-lg font-semibold text-gray-800 mb-2 font-playfair">
               {presente.nome}
             </h3>
+
             <p className="text-2xl font-bold text-gold mb-4">
               {presente.valor.toLocaleString('pt-BR', {
                 style: 'currency',
                 currency: 'BRL',
               })}
             </p>
-            <button
+
+            <motion.button
               onClick={() => handleComprarClick(presente)}
               disabled={presente.comprado}
+              whileHover={!presente.comprado ? { scale: 1.02 } : {}}
+              whileTap={!presente.comprado ? { scale: 0.98 } : {}}
               className={`w-full py-3 rounded-lg font-medium transition-all ${
                 presente.comprado
-                  ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-gold to-darkGold text-white hover:shadow-lg transform hover:scale-105'
+                  ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-gold to-darkGold text-white shadow-md hover:shadow-lg'
               }`}
             >
-              {presente.comprado ? '✓ Já Presenteado' : 'Comprar Presente'}
-            </button>
+              {presente.comprado ? '✓ Já Presenteado' : '🎁 Presentear'}
+            </motion.button>
           </motion.div>
         ))}
       </div>
+
+      {presentes.length === 0 && (
+        <div className="text-center py-12">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-gray-500"
+          >
+            <svg
+              className="w-16 h-16 mx-auto mb-4 text-gray-300"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+            </svg>
+            <p className="text-lg">Carregando presentes...</p>
+          </motion.div>
+        </div>
+      )}
 
       {presenteSelecionado && (
         <Modal
